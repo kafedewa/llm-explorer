@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Children } from 'react'
 
 const useGetCompletion = () => {
 
-        const getCompletion = async (prompt,response,temperature,top_p) => {
+        const getCompletion = async (prompt,response,temperature,top_p,lastNodeId,setLastNodeId) => {
           try {
             const res = await fetch("/api/getNextResponse", {
               method: "POST",
@@ -16,16 +16,24 @@ const useGetCompletion = () => {
             }
     
             const newCompletion = [];
+            let startId = lastNodeId;
 
             if(data.choices[0].finish_reason != "stop"){
               data.choices[0].logprobs.content[0].top_logprobs.map((logprob) => {
                 newCompletion.push({
-                  token: logprob.token,
-                  logprobs: logprob.logprob,
-                  chosen: false})
-      
+                  name: logprob.token,
+                  attributes: {
+                    id: startId,
+                    token: logprob.token,
+                    logprobs: logprob.logprob,
+                    chosen: false,
+                  },
+                  children: []});
+                startId += 1;
               });
             }
+
+            setLastNodeId(startId);
     
             return newCompletion;
 

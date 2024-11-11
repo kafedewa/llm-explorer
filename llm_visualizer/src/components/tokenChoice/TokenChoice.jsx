@@ -1,19 +1,24 @@
 import React from 'react'
 
-const TokenChoice = ({idx, token, disabled, onClick}) => {
-  const buttonColor = (disabled ? 
-      (token.chosen ? `disabled:bg-secondary disabled:text-secondary-content` : `disabled:bg-base-300 disabled:text-base-content`) 
-      : `btn-primary`);
-  const disabledStatus = (disabled ? `disabled` : ``)
+const TokenChoice = ({  nodeDatum, toggleNode,
+  handleNodeClick }) => {
+  
+  const buttonColor = (nodeDatum.attributes.chosen ? `btn-secondary`: `btn-primary`);
+  const nodeSize = { x: 150, y: 50 };
+  const nodePlacement = { x: -75, y: -25 }
+  const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: nodePlacement.x, y: nodePlacement.y };
+  console.log(handleNodeClick);
 
   return (
-    <div className='pt-4'>
-      <button className={`btn ${buttonColor}`}id={idx} value={token.token} onClick={onClick} disabled={disabledStatus}>
-          {token.token} <br/>
-          {token.logprobs}
-      </button>      
-    </div>
-
+    <g>
+      {/* `foreignObject` requires width & height to be explicitly set. */}
+      <foreignObject {...foreignObjectProps}>
+        <button className={`btn ${buttonColor}`}id={nodeDatum.attributes.id} value={nodeDatum.attributes.token} onClick={() => handleNodeClick(nodeDatum)}>
+            {nodeDatum.attributes.token} <br/>
+            {nodeDatum.attributes.logprobs.toFixed(5)}
+        </button> 
+      </foreignObject>
+    </g>
   )
 }
 
