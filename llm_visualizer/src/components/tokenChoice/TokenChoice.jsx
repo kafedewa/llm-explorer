@@ -2,12 +2,10 @@ import React from 'react'
 
 const TokenChoice = ({  nodeDatum, toggleNode,
   handleNodeClick }) => {
-  
   const buttonColor = (nodeDatum.attributes.chosen ? `btn-secondary`: `btn-primary`);
   const nodeSize = { x: 150, y: 50 };
   const nodePlacement = { x: -75, y: -25 }
   const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: nodePlacement.x, y: nodePlacement.y };
-  console.log(handleNodeClick);
 
   return (
     <g>

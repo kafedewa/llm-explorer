@@ -5,8 +5,8 @@ const PromptForm = ({ handleSubmit, prompt, setPrompt, top_p, setTop_p, temperat
 
 
     return (
-        <div className="navbar  bg-white w-dvh top-0 left-0 right-0">
-        <form onSubmit={handleSubmit} className='w-full'>
+        <div className="navbar">
+        <form onSubmit={handleSubmit} className='w-full pt-4 pr-4 pl-4'>
         <label className="input input-bordered w-full flex items-center gap-2 mr-6">
             Prompt
             <input type="text" 
