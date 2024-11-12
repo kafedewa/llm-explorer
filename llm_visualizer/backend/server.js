@@ -138,8 +138,6 @@ app.post('/api/getNextResponse', async (req, res) => {
             },
         });
 
-        console.log(completion);
-
         res.status(200).json(completion);
 
     } catch (error) {

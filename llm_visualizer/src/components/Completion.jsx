@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Tree from 'react-d3-tree'
 import TokenChoice from './tokenChoice/TokenChoice'
 import { useCenteredTree } from '../helpers'
-import ResponseCard from './responseCard/ResponseCard'
+import ResponseContainer from './response/ResponseContainer'
 
 
 const createResponse = (data) => {
@@ -67,17 +67,7 @@ const Completion = ({ completion, handleNodeClick }) => {
                         }
                     />
                 </div>
-                <div className="drawer-side overflow-auto ">
-                    <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-base-100 text-base-content w-90 pb-24">
-                        {responses &&
-                            responses.map((response, idx) => (
-                                <ResponseCard key={idx} response={response} />
-                            ))
-                        }
-
-                    </ul>
-                </div>
+                <ResponseContainer responses={responses}/>
             </div>
         </div>
 
