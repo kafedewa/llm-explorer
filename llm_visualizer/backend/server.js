@@ -1,22 +1,30 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import OpenAI from "openai";
+import path from 'path'
 import { parse } from 'postcss';
 
 dotenv.config();
 
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
+const __dirname = path.resolve();
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "/dist")))
+
+app.get("*", (req,res) =>{
+  const __dirname = path.resolve();
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+})
+
 app.post('/api/getNextResponse', async (req, res) => {
     try {
         const {prompt, response, temperature, top_p} = req.body;
-
-        console.log(response);
 
         let formattedMessages = [
             {
@@ -52,6 +60,15 @@ app.post('/api/getNextResponse', async (req, res) => {
                   {
                     "type": "text",
                     "text": " square"
+                  }
+                ]
+              },
+              {
+                "role": "assistant",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "are"
                   }
                 ]
               },
@@ -148,6 +165,8 @@ app.post('/api/getNextResponse', async (req, res) => {
     }
 
 }); 
+
+
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

@@ -27,9 +27,7 @@ function App() {
   }
 
   return (
-    <div className=' bg-white overflow-x-hidden overflow-y-hidden'>
-
-      <div className='flex flex-col h-dvh w-full'>
+      <div className='flex flex-col bg-white h-dvh w-full'>
         <div><Toaster/></div>
 
         <PromptForm 
@@ -50,8 +48,6 @@ function App() {
             <Welcome/>
           }
       </div>
-
-    </div>
   )
 }
 

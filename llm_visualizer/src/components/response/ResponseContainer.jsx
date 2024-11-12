@@ -1,10 +1,10 @@
 import ResponseCard from "./ResponseCard"
 
-const ResponseContainer = ({fullResponse, responses}) => {
+const ResponseContainer = ({ responses}) => {
   return (
-    <div className="drawer-side overflow-auto ">
+    <div className="drawer-side h-[calc(100vh-4rem)] top-16 overflow-auto ">
         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-100 text-base-content h-full w-80 pb-24">
+        <ul className="menu bg-base-100 grid grid-cols-1 text-base-content h-full w-80 pb-24">
             {responses ?
                 responses.map((response, idx) => (
                     <ResponseCard key={idx} response={response} id={idx} />
