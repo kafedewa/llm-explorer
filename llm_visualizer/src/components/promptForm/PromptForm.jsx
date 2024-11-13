@@ -20,23 +20,25 @@ const PromptForm = ({ setCompletion, prompt, setPrompt, top_p, setTop_p, tempera
 
 
     return (
-        <div className="navbar flex">
-            <form onSubmit={handleSubmit} className='w-full p-4'>
-                <label className="input input-bordered w-full flex items-center gap-2 mr-6">
+        <div className='h-fit'>
+        <div className="navbar flex-wrap">
+            <form onSubmit={handleSubmit} className='w-full items-center justify-center flex flex-col lg:flex-row p-4 pb-2 pt-2'>
+                <label className="input input-bordered w-full flex items-center lg:mr-2">
                     Prompt
                     <input type="text"
                         placeholder='Enter a prompt'
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
-                        className='input-md text-black w-full'
+                        className='input-lg text-black w-full'
                     />
                 </label>
 
                 <InputSlider value={top_p} setValue={setTop_p} label={"Top_p"} min={"0"} max={"1.00"} dataTip={"Limits the output to the top p cumulative probability of the predicted words, meaning it restricts word selection to a subset of the most likely words."} />
-                <InputSlider value={temperature} setValue={setTemperature} label={"Temperature"} min={"0"} max={"2.00"} dataTip={"Controls the \"creativity\" or randomness of the output. Higher values maske the responses more random, encouraging creative or diverse outputs."} />
+                <InputSlider value={temperature} setValue={setTemperature} label={"Temp"} min={"0"} max={"2.00"} dataTip={"Controls the \"creativity\" or randomness of the output. Higher values maske the responses more random, encouraging creative or diverse outputs."} />
 
-                <button className='btn btn-secondary join-item' type='submit'>Start Exploring!</button>
+                <button className='btn btn-secondary join-item mt-2 lg:mt-0' type='submit'>Start Exploring!</button>
             </form>
+        </div>
         </div>
     )
 }

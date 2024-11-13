@@ -2,15 +2,15 @@ import ResponseCard from "./ResponseCard"
 
 const ResponseContainer = ({ responses}) => {
   return (
-    <div className="drawer-side h-[calc(100vh-4rem)] top-16 overflow-auto ">
+    <div className="drawer-side h-[calc(100vh-13rem)] lg:h-[calc(100vh-5rem)] overflow-auto ">
         <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-100 grid grid-cols-1 text-base-content h-full w-80 pb-24">
+        <ul className="menu bg-base-100 grid grid-cols-1 gap-2 auto-rows-max text-base-content h-full w-80">
             {responses ?
                 responses.map((response, idx) => (
                     <ResponseCard key={idx} response={response} id={idx} />
                 ))
                 :
-                <div className="card bg-primary items-center justify-center text-primary-content h-full">
+                <div className="card row-span-full bg-primary text-primary-content">
                     <h2 className="card-title p-0 text-2xl text-center">Start creating a response by clicking the node on the left.</h2>
                     <p> <br></br></p>
                     <p className="text-base">Each node contains two things: </p>
