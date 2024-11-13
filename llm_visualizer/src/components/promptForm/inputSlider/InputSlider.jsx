@@ -8,8 +8,8 @@ const InputSlider = ({ value, setValue, label, min, max, dataTip }) => {
       <div className='tooltip tooltip-bottom mt-1' data-tip={dataTip}>
         <SlQuestion className="ml-1 mr-2" />
       </div>
-      <input type="range" min={min} max={max} value={value} onChange={(e) => setValue(e.target.value)} step="0.01" className="range range-primary mr-2" />
-      <div className='mr-2 min-w-10 w-10 text-right'> {parseFloat(value).toFixed(2)} </div>
+      <input type="range" min={min} max={max} value={value} onChange={(e) => setValue(e.target.value)} step="0.01" className="range range-primary mr-1" />
+      <div className='mr-2 min-w-9 w-9 text-right'> {parseFloat(value).toFixed(2)} </div>
     </div>
   )
 }
