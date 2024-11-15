@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Tree from 'react-d3-tree'
 import TokenChoice from './tokenChoice/TokenChoice'
 import { useCenteredTree } from '../utils/helpers'
@@ -54,11 +54,9 @@ const Completion = ({ completion, handleNodeClick }) => {
     return (
             <div className="drawer drawer-open drawer-end h-full">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col h-full items-center justify-center" ref={containerRef}>
+                <div className="drawer-content flex flex-col h-full items-center justify-center">
                     <Tree
                         data={completion}
-                        dimensions={dimensions}
-                        translate={translate}
                         pathFunc='step'
                         orientation='vertical'
                         renderCustomNodeElement={(rd3tProps) =>

@@ -1,10 +1,8 @@
-import React from 'react'
-import { SlArrowDown } from "react-icons/sl";
-import { SlArrowUp } from "react-icons/sl";
+
 
 const ResponseExplainer = () => {
   return (
-    <div tabIndex={0} className="card collapse lg:collapse-open h-fit w-full bg-primary text-primary-content items-center justify-center mb-4">
+    <div  className="card collapse lg:collapse-open h-fit w-full bg-primary text-primary-content items-center justify-center mb-4">
         <input type="checkbox" />
         <h2 className="card-title collapse-title p-0 text-2xl text-center">Start creating a response by clicking the node</h2>
         <div className='collapse-content'>

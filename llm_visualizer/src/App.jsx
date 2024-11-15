@@ -18,6 +18,11 @@ function App() {
   const { getCompletion } = useGetCompletion();
   
   const handleNodeClick = async (e) => {
+    console.log("in handle node click");
+
+    if(e.attributes.chosen){
+      return;
+    }
 
     const newResponse = getSelectedResponse(e.attributes.id, completion);
     const newCompletion = await getCompletion(prompt, newResponse, temperature, top_p, lastNodeId, setLastNodeId);
