@@ -54,10 +54,12 @@ const Completion = ({ completion, handleNodeClick }) => {
     return (
             <div className="drawer drawer-open drawer-end h-full">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col h-full items-center justify-center">
+                <div className="drawer-content flex flex-col h-full items-center justify-center" ref={containerRef}>
                     <Tree
                         data={completion}
                         pathFunc='step'
+                        dimensions={dimensions}
+                        translate={translate}
                         orientation='vertical'
                         renderCustomNodeElement={(rd3tProps) =>
                             TokenChoice({ ...rd3tProps, handleNodeClick })
