@@ -42,7 +42,7 @@ function App() {
           setLastNodeId={setLastNodeId} />
 
         {Object.keys(completion).length > 0 ?
-          (<div className='h-full'>
+          (<div className='h-full w-full'>
             <Completion completion={completion} handleNodeClick={handleNodeClick} /> </div>)
           : 
             <Welcome/>

@@ -74,3 +74,5 @@ const Completion = ({ completion, handleNodeClick }) => {
 }
 
 export default Completion
+
+//<ResponseContainer responses={responses}/>

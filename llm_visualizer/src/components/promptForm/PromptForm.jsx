@@ -29,7 +29,7 @@ const PromptForm = ({ setCompletion, prompt, setPrompt, top_p, setTop_p, tempera
                         placeholder='Enter a prompt'
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
-                        className='input-lg text-black w-full'
+                        className='input-lg text-black text-base w-full'
                     />
                 </label>
 
